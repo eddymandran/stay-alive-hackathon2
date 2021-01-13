@@ -1,0 +1,22 @@
+// generer le plateau
+
+
+
+// fonction recuperer coordonnees
+
+// insertion  avatar dans plateau
+
+// tir
+
+
+// changement d'etat de la case
+
+
+// increment du nombre de bleus
+
+
+
+
+
+// mise a jour de la position des joueurs
+

@@ -17,7 +17,7 @@ function App() {
       .collection("Users")
       .doc("1oZUtkBNEGob0MnumsgU")
       .set({
-        name: pseudo,
+        name: pseudo, 
       })
       .then(function () {
         console.log("Document successfully written!");

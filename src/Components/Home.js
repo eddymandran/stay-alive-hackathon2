@@ -49,10 +49,6 @@ export default function Home() {
   const [idUser, setIdUser] = useState("");
   const [idGame, setIdGame] = useState("");
 
-  // const [notChosen, setNotChosen] = useState(false);
-  // const handleChosen = () => {
-  //   setNotChosen(!notChosen);
-  // };
 
   const createUser = (event) => {
     event.preventDefault();
@@ -66,7 +62,6 @@ export default function Home() {
         score: 0,
       })
       .then(function (res) {
-        // console.log("Document successfully written!", res.id);
         setIsSetUser(!isSetUser);
         setIdUser(res.id);
       })
@@ -82,7 +77,6 @@ export default function Home() {
       date: fb.firestore.FieldValue.serverTimestamp()
     })
     .then(function (res) {
-      // console.log("Document successfully written!", res.id);
       setIdGame(res.id);
     })
     .catch(function (error) {

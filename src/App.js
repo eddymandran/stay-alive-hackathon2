@@ -20,8 +20,8 @@ function App() {
               component={Home}
               props={(pseudo, setPseudo)}
             />
-            <Route path="/ChooseMap" component={ChooseMap} />
-            <Route exact path="/Game/:pseudo" component={Game} />
+            <Route path="/choosemap" component={ChooseMap} />
+            <Route exact path="/game/:pseudo" component={Game} />
           </Switch>
         </main>
       </Router>

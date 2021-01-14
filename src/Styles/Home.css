@@ -2,24 +2,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Mouse+Memoirs&display=swap");
 
 .home {
-  background: url(../images/Accueil.png) no-repeat fixed center / cover;
-  width: 100%;
-  height: 100vh;
-  padding-top: 5%;
+background: url(../images/Accueil.png) no-repeat fixed center / cover;
+width: 100%;
+height: 100vh;
 }
 
 .titleHome {
-  color: #00ffe0;
-  font-size: 8rem;
-  font-family: "Bangers", cursive;
-  letter-spacing: 5px;
-  width: 50%;
-  height: auto;
-  text-align: center;
-  margin: auto;
-  background-color: #424242;
-  border-radius: 10px;
-  border: 1rem solid orange;
+color: #00FFE0;
+font-size: 8rem;
+font-family: 'Bangers', cursive;
+letter-spacing: 5px;
+width: 50%;
+min-width: 320px;
+height: auto;
+text-align: center;
+margin: auto;
+background-color: #424242;
+border-radius: 10px;
+border: 1rem solid orange;
 }
 .titleHome1 {
   color: #81d4fa;
@@ -61,14 +61,14 @@
 .AvatarsLook1:hover {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
-.AvatarsLook1C {
-  width: 125px;
-  height: 175px;
-  background: url(../images/schwarzy.png) no-repeat center / cover;
-  cursor: pointer;
-  border: 6px solid orange;
-  border-radius: 10px;
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+.AvatarsLook1Active {
+width: 125px;
+height: 175px;
+background: url(../images/schwarzy.png) no-repeat center / cover;
+cursor: pointer;
+border: 6px solid orange;
+border-radius: 10px;
+box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 .AvatarsLook2 {
@@ -84,14 +84,14 @@
 .AvatarsLook2:hover {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
-.AvatarsLook2C {
-  width: 125px;
-  height: 175px;
-  background: url(../images/einstein.png) no-repeat center / cover;
-  cursor: pointer;
-  border: 6px solid orange;
-  border-radius: 10px;
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+.AvatarsLook2Active {
+width: 125px;
+height: 175px;
+background: url(../images/einstein.png) no-repeat center / cover;
+cursor: pointer;
+border: 6px solid orange;
+border-radius: 10px;
+box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 .AvatarsLook3 {
@@ -107,14 +107,14 @@
 .AvatarsLook3:hover {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
-.AvatarsLook3C {
-  width: 125px;
-  height: 175px;
-  background: url(../images/madonna.png) no-repeat center / cover;
-  cursor: pointer;
-  border: 6px solid orange;
-  border-radius: 10px;
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+.AvatarsLook3Active {
+width: 125px;
+height: 175px;
+background: url(../images/madonna.png) no-repeat center / cover;
+cursor: pointer;
+border: 6px solid orange;
+border-radius: 10px;
+box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 .AvatarsLook4 {
@@ -130,6 +130,15 @@
 .AvatarsLook4:hover {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
+.AvatarsLook4Active {
+  width: 125px;
+  height: 175px;
+  background: url(../images/obama.png) no-repeat center / cover;
+  cursor: pointer;
+  border: 6px solid orange;
+  border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  }
 
 .AvatarsLook5 {
   width: 100px;
@@ -144,6 +153,15 @@
 .AvatarsLook5:hover {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
+.AvatarsLook5Active {
+  width: 125px;
+  height: 175px;
+  background: url(../images/lee.png) no-repeat center / cover;
+  cursor: pointer;
+  border: 6px solid orange;
+  border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  }
 
 .formLogin {
   display: flex;

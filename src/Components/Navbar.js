@@ -1,21 +1,32 @@
 import React, { useContext, useEffect } from 'react';
 import '../Styles/Navbar.css';
+import { Howl } from 'howler';
+import down from '../audio/down.mp3';
+import pump from '../audio/pump.mp3';
 import { GeneralContext } from '../Contexts/GeneralContext';
 import { useToasts } from 'react-toast-notifications';
 
+const audioClips = new Howl({
+  src: [down],
+});
+const audioClips1 = new Howl({
+  src: [pump],
+});
 
 export default function Navbar() {
   const { scorePlayer } = useContext(GeneralContext);
   const { addToast } = useToasts();
 
   function goodPlayer() {
-    if (scorePlayer === 10 || scorePlayer === 15 || scorePlayer === 20 ) {
+    if (scorePlayer === 10 || scorePlayer === 20) {
+      audioClips.play();
       addToast('Vous êtes déchainé !', {
         appearance: 'success',
         autoDismiss: true,
       });
     } else if (scorePlayer < 0) {
-      addToast("Vous dormez ??? Debout la dedans !!!", {
+      audioClips1.play();
+      addToast('Vous dormez ??? Debout la dedans !!!', {
         appearance: 'error',
         autoDismiss: true,
       });

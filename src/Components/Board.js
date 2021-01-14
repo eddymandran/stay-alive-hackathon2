@@ -74,10 +74,7 @@ export default function Board() {
         id='target'
         alt='target'
       />
-      <h1>Shooting Game</h1>
-      <p>
-        Score: <span id='ScoreCount'>{scorePlayer}</span>
-      </p>
+      <h1>STAY ALIVE !!</h1>
     </div>
   );
 }

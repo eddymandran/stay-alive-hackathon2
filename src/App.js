@@ -11,6 +11,7 @@ function App() {
   const [pseudo, setPseudo] = useState("");
   const [picture, setPicture] = useState(null);
 
+
   // Add a new document in collection "cities"
   const createUser = (event) => {
     event.preventDefault();

@@ -1,9 +1,10 @@
 /* eslint-disable no-restricted-globals */
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import '../Styles/Board.css';
+import { GeneralContext } from '../Contexts/GeneralContextProvider';
 
 export default function Board() {
-  const [scorePlayer, setScorePlayer] = useState(0);
+  const { scorePlayer, setScorePlayer } = useContext(GeneralContext);
   document.body.onmousemove = function () {
     document.getElementById('scope').style.marginLeft = event.x - 32 + 'px';
     document.getElementById('scope').style.marginTop = event.y - 32 + 'px';

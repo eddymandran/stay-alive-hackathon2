@@ -3,19 +3,22 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './Components/Home';
 import ChooseMap from './Components/ChooseMap';
 import Game from './Components/Game';
+import GeneralContextProvider from './Contexts/GeneralContextProvider';
 
 function App() {
   return (
     <div className='App'>
-      <Router>
-        <main>
-          <Switch>
-            <Route path='/' exact component={Home} />
-            <Route path='/choosemap' component={ChooseMap} />
-            <Route path='/game' component={Game} />
-          </Switch>
-        </main>
-      </Router>
+      <GeneralContextProvider>
+        <Router>
+          <main>
+            <Switch>
+              <Route path='/' exact component={Home} />
+              <Route path='/choosemap' component={ChooseMap} />
+              <Route path='/game' component={Game} />
+            </Switch>
+          </main>
+        </Router>
+      </GeneralContextProvider>
     </div>
   );
 }

@@ -22,9 +22,9 @@ function App() {
             />
             <Route path="/ChooseMap" component={ChooseMap} />
             <Route
-              path="/Game"
+              exact
+              path="/Game/:pseudo"
               component={Game}
-              props={(users, setUsers, pseudo)}
             />
           </Switch>
         </main>

@@ -5,6 +5,10 @@ import gagne from '../audio/gagne.mp3';
 import pump from '../audio/pump.mp3';
 import { GeneralContext } from '../Contexts/GeneralContext';
 import { useToasts } from 'react-toast-notifications';
+import { firebase } from "../services/firebase";
+import { useState } from "react";
+
+const fb = firebase;
 
 const audioClips = new Howl({
   src: [gagne],
@@ -32,6 +36,25 @@ export default function Navbar() {
       });
     }
   }
+
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    const getUsers = fb
+      .firestore()
+      .collection("Users")
+      .orderBy("name", "asc")
+      .onSnapshot((u) => {
+        setUsers(
+          u.docs.map((user) => {
+            return { id: user.id, ...user.data() };
+          })
+        );
+      });
+
+    return () => getUsers();
+  }, []);
+
   useEffect(() => {
     goodPlayer();
   }, [scorePlayer]);
@@ -51,11 +74,13 @@ export default function Navbar() {
       <div className='zoneCharacters'>
         <h5 className='title5'>Fugitive(s)</h5>
         <ul className='charactersList'>
-          <li>Perso 1</li>
-          <li>Perso 2</li>
-          <li>Perso 3</li>
-          <li>Perso 4</li>
-          <li>Perso 5</li>
+        {users.map((u) => {
+            return (
+              <li key={u.id}>
+                {u.name} 
+              </li>
+            );
+          })}
         </ul>
       </div>
     </div>

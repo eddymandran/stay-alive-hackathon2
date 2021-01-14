@@ -11,6 +11,11 @@ export default function Home() {
   const [isSetUser, setIsSetUser] = useState(false);
   const [idUser, setIdUser] = useState('');
 
+  const [notChosen, setNotChosen] = useState(false);
+  const handleChosen = () => {
+    setNotChosen(!notChosen);
+  };
+
   const createUser = (event) => {
     event.preventDefault();
     fb.firestore()
@@ -29,15 +34,26 @@ export default function Home() {
       .catch(function (error) {
         console.error("Error writing document: ", error);
       });
-  };
-
+    }
+  
   return (
-    <div className="home">
-      <h1 className="titleHome">
-        <span className="titleHome1">Stay </span>Alive !
+    <div className='home'>
+      <h1 className='titleHome'>
+        <span className='titleHome1'>Stay </span>Alive !
       </h1>
-      <form className="formLogin" onSubmit={createUser}>
-        <label for="name" className="texteLabel">
+      <p className='chooseAvatarStyle'>Choose your avatar</p>
+      <div className='chooseAvatarImgs'>
+        <div
+          className={notChosen ? 'AvatarsLook1' : 'AvatarsLook1C'}
+          onClick={handleChosen}
+        ></div>
+        <div className='AvatarsLook2' onClick={handleChosen}></div>
+        <div className='AvatarsLook3' onClick={handleChosen}></div>
+        <div className='AvatarsLook4' onClick={handleChosen}></div>
+        <div className='AvatarsLook5' onClick={handleChosen}></div>
+      </div>
+      <form className='formLogin' onSubmit={createUser}>
+        <label for='name' className='texteLabel'>
           Pseudo
         </label>
         <input
@@ -48,7 +64,7 @@ export default function Home() {
           onChange={(e) => setPseudo(e.target.value)}
         ></input>
         {!isSetUser ? (
-        <button type="submit" className="buttonHome">
+        <button type='submit' className='buttonHome'>
           Rejoindre
         </button>) : (
         <Link to={`ChooseMap/${idUser}`}>

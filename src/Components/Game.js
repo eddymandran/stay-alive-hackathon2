@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import "../Styles/Game.css";
 import { useState } from "react";
 import { firebase } from "../services/firebase";
+import schwarzy from '../images/schwarzy.png';
 const fb = firebase;
 
 // const useMove = () => {
@@ -24,7 +25,6 @@ export default function Game(props) {
   const idUser = params.iduser;
   const [users, setUsers] = useState([]);
   const [user, setUser] = useState([]);
-  const [chosenPicturePath, setChosenPicturePath] = useState("schwarzy.png");
 
   useEffect(() => {
     const getUser = fb
@@ -37,27 +37,32 @@ export default function Game(props) {
 
     return () => getUser();
   }, []);
-  console.log(user);
+  
 
   const setCoordonates = (e) => {
-    fb.firestore()
-      .collection("Users")
-      .doc(idUser)
-      .update({
-        x: e.clientX,
-        y: e.clientY,
-      })
-      .then(() => {
-        console.log("Coordonates updated");
-      })
-      .catch((err) => {
-        console.error("Error writing coordonates", err);
-      });
+    // fb.firestore()
+    //   .collection("Users")
+    //   .doc(idUser)
+    //   .update({
+    //     x: e.clientX,
+    //     y: e.clientY,
+    //   })
+    //   .then((res) => {
+    //     console.log("Coordonates updated");
+    //   })
+    //   .catch((err) => {
+    //     console.error("Error writing coordonates", err);
+    //   });
+    setUser({x: e.clientX, y: e.clientY});
+    console.log(user);
   };
-
   return (
     <div className="gameBody">
-      <div className="mouseArea" onClick={(e) => setCoordonates(e)}><img src=`../images/schwarzy.png` /></div>
+      <div className="mouseArea" onMouseMove={(e) => setCoordonates(e)}>
+      <img src={schwarzy} alt={`avatar${user.picture}`} style={{ position: 'absolute', top: `${user.y}px`, left: `${user.x}px`}}/>
+
+        {/* <img src={`../images/${user.picture}`} alt={`avatar${user.picture}`} style={{ position: 'absolute', top: `${user.y}px`, left: `${user.x}px`}}/> */}
+        </div>
       <Navbar props={(users, setUsers, user)} />
     </div>
   );

@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import "./App.css";
 import { firebase, messaging } from "./services/firebase";
 import { useEffect } from "react";
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Home from './Components/Home';
+import ChooseMap from './Components/ChooseMap';
+import Game from './Components/Game';
 import "./App.css";
 
 const fb = firebase;
@@ -45,6 +49,16 @@ function App() {
 
   return (
     <div className="App">
+      <Router>
+        <main>
+          <Switch>
+            <Route path='/' exact component={Home} />
+            <Route path='/ChooseMap' component={ChooseMap} />
+            <Route path='/Game' component={Game} />
+          </Switch>
+        </main>
+      </Router>
+    
       <h1>Stay Alive</h1>
       <ul>
         {users.map((u) => {
@@ -64,8 +78,10 @@ function App() {
         ></input>
         <input type="submit" value="Rejoindre la partie" />
       </form>
-    </div>
-  );
+      </div>
+    );
 }
+
+
 
 export default App;

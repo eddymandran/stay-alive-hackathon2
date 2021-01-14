@@ -2,27 +2,29 @@ import React from "react";
 import "../Styles/Home.css";
 import { firebase } from "../services/firebase";
 import { useState } from "react";
-import {Redirect} from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const fb = firebase;
 
 export default function Home() {
   const [pseudo, setPseudo] = useState("");
+  const [isSetUser, setIsSetUser] = useState(false);
+  const [idUser, setIdUser] = useState('');
 
   const createUser = (event) => {
     event.preventDefault();
     fb.firestore()
       .collection("Users")
-      .doc(pseudo)
-      .set({
+      .add({
         name: pseudo,
         picture: "logo_flstudio.jpeg",
         x: 0,
         y: 0
       })
-      .then(function () {
-        console.log("Document successfully written!");
-        
+      .then(function (res) {
+        // console.log("Document successfully written!", res.id);
+        setIsSetUser(!isSetUser);
+        setIdUser(res.id);
       })
       .catch(function (error) {
         console.error("Error writing document: ", error);
@@ -45,9 +47,13 @@ export default function Home() {
           value={pseudo}
           onChange={(e) => setPseudo(e.target.value)}
         ></input>
+        {!isSetUser ? (
         <button type="submit" className="buttonHome">
           Rejoindre
-        </button>
+        </button>) : (
+        <Link to={`ChooseMap/${idUser}`}>
+          <input type='button' value='GO' className='buttonHome'/>
+          </Link>)}
       </form>
     </div>
   );

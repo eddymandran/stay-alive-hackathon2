@@ -6,8 +6,6 @@ import ChooseMap from "./Components/ChooseMap";
 import Game from "./Components/Game";
 
 function App() {
-  const [users, setUsers] = useState([]);
-  const [pseudo, setPseudo] = useState("");
 
   return (
     <div className="App">
@@ -18,12 +16,11 @@ function App() {
               path="/"
               exact
               component={Home}
-              props={(pseudo, setPseudo)}
             />
-            <Route path="/ChooseMap" component={ChooseMap} />
+            <Route path="/ChooseMap/:iduser" component={ChooseMap} />
             <Route
               exact
-              path="/Game/:pseudo"
+              path="/Game/:iduser"
               component={Game}
             />
           </Switch>

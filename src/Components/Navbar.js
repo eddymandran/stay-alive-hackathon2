@@ -44,7 +44,7 @@ export default function Navbar() {
           {users.map((u) => {
             return (
               <li key={u.id}>
-                {u.name} {u.age}
+                {u.name} 
               </li>
             );
           })}

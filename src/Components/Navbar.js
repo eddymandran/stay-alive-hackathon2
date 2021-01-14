@@ -1,13 +1,13 @@
 import React, { useContext, useEffect } from 'react';
 import '../Styles/Navbar.css';
 import { Howl } from 'howler';
-import down from '../audio/down.mp3';
+import gagne from '../audio/gagne.mp3';
 import pump from '../audio/pump.mp3';
 import { GeneralContext } from '../Contexts/GeneralContext';
 import { useToasts } from 'react-toast-notifications';
 
 const audioClips = new Howl({
-  src: [down],
+  src: [gagne],
 });
 const audioClips1 = new Howl({
   src: [pump],
@@ -40,11 +40,11 @@ export default function Navbar() {
     <div className='scoreBar'>
       <div className='zoneAvatar'>
         <img alt='personnage choisi'></img>
-        <h5 className='title5'>Pseudo</h5>
+        <h5 className='title5'>NickName :</h5>
       </div>
       <hr />
       <div className='zoneScore'>
-        <h5 className='title5'>{scorePlayer}</h5>
+        <h5 className='title5'> Your score :<p>{scorePlayer}</p></h5>
         <img alt='schtroumph'></img>
       </div>
       <hr />

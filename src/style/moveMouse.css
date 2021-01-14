@@ -1,0 +1,24 @@
+html,
+body {
+  box-sizing: border-box;
+  background-color: #fc930a;
+  height: 100%;
+  margin: 0px;
+  padding: 20px;
+  font-family: 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+#root {
+  height: 100vh;
+}
+.mouseArea {
+  height: 100vh;
+  background: url('../style/BUREAU.jpg') no-repeat fixed center / cover;
+}
+.mouseInfo {
+  height: 100vh;
+}
+image {
+  height: 100vh;
+  width: 100vw;
+}

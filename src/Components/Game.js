@@ -3,7 +3,7 @@ import Navbar from "./Navbar";
 import "../Styles/Game.css";
 import { useState } from "react";
 import { firebase } from "../services/firebase";
-import schwarzy from '../images/schwarzy.png';
+import schwarzy from "../images/schwarzy.png";
 const fb = firebase;
 
 // const useMove = () => {
@@ -37,32 +37,39 @@ export default function Game(props) {
 
     return () => getUser();
   }, []);
-  
 
   const setCoordonates = (e) => {
-    // fb.firestore()
-    //   .collection("Users")
-    //   .doc(idUser)
-    //   .update({
-    //     x: e.clientX,
-    //     y: e.clientY,
-    //   })
-    //   .then((res) => {
-    //     console.log("Coordonates updated");
-    //   })
-    //   .catch((err) => {
-    //     console.error("Error writing coordonates", err);
-    //   });
-    setUser({x: e.clientX, y: e.clientY});
-    console.log(user);
+    fb.firestore()
+      .collection("Users")
+      .doc(idUser)
+      .update({
+        x: e.clientX,
+        y: e.clientY,
+      })
+      .then((res) => {
+        console.log("Coordonates updated");
+      })
+      .catch((err) => {
+        console.error("Error writing coordonates", err);
+      });
+    /*     setUser({x: e.clientX, y: e.clientY});
+    console.log(user); */
   };
   return (
     <div className="gameBody">
       <div className="mouseArea" onMouseMove={(e) => setCoordonates(e)}>
-      <img src={schwarzy} alt={`avatar${user.picture}`} style={{ position: 'absolute', top: `${user.y}px`, left: `${user.x}px`}}/>
+        <img
+          src={schwarzy}
+          alt={`avatar${user.picture}`}
+          style={{
+            position: "absolute",
+            top: `${user.y}px`,
+            left: `${user.x}px`,
+          }}
+        />
 
         {/* <img src={`../images/${user.picture}`} alt={`avatar${user.picture}`} style={{ position: 'absolute', top: `${user.y}px`, left: `${user.x}px`}}/> */}
-        </div>
+      </div>
       <Navbar props={(users, setUsers, user)} />
     </div>
   );

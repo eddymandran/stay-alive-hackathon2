@@ -2,6 +2,7 @@
 import React, { useContext } from 'react';
 import '../Styles/Board.css';
 import { GeneralContext } from '../Contexts/GeneralContext';
+import nerf from '../images/nerf.png'
 
 export default function Board() {
   const { scorePlayer, setScorePlayer } = useContext(GeneralContext);
@@ -33,12 +34,8 @@ export default function Board() {
     }
   };
 
-  const bulletSound = document.createElement('AUDIO');
-  bulletSound.src =
-    'http://www.freesound.org/people/RandomationPictures/sounds/138480/download/138480__randomationpictures__bullet-blood-3.wav';
 
   function shoot() {
-    bulletSound.play();
     let bulletPosX = event.x - 32;
     console.log(event.x);
     let bulletPosY = event.y - 32;
@@ -64,7 +61,7 @@ export default function Board() {
   return (
     <div id='container'>
       <img
-        src='http://vignette3.wikia.nocookie.net/callofduty/images/7/7c/L96A1_Scope_BO.png/revision/20120119151427'
+        src={nerf}
         id='scope'
         onClick={shoot}
         alt='scope'

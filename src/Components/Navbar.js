@@ -49,7 +49,7 @@ export default function Navbar() {
       </div>
       <hr />
       <div className='zoneCharacters'>
-        <h5 className='title5'>Personnages connectés</h5>
+        <h5 className='title5'>Fugitive(s)</h5>
         <ul className='charactersList'>
           <li>Perso 1</li>
           <li>Perso 2</li>

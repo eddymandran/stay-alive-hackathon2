@@ -6,6 +6,9 @@ import ChooseMap from "./Components/ChooseMap";
 import Game from "./Components/Game";
 
 function App() {
+  const [users, setUsers] = useState([]);
+  const [chosenPicturePath, setChosenPicturePath] = useState("schwarzy.png");
+  const [pseudo, setPseudo] = useState("");
 
   return (
     <div className="App">
@@ -16,13 +19,10 @@ function App() {
               path="/"
               exact
               component={Home}
+              props={(pseudo, setPseudo)}
             />
-            <Route path="/ChooseMap/:iduser" component={ChooseMap} />
-            <Route
-              exact
-              path="/Game/:iduser"
-              component={Game}
-            />
+            <Route path="/ChooseMap" component={ChooseMap} />
+            <Route exact path="/Game/:pseudo" component={Game} />
           </Switch>
         </main>
       </Router>

@@ -24,37 +24,40 @@ export default function Game(props) {
   const idUser = params.iduser;
   const [users, setUsers] = useState([]);
   const [user, setUser] = useState([]);
+  const [chosenPicturePath, setChosenPicturePath] = useState("schwarzy.png");
 
   useEffect(() => {
-    const getUser = fb.firestore().collection('Users').doc(idUser).onSnapshot((u) => {
-      setUser({ id: u.id, ...u.data() });
-    });
-    
+    const getUser = fb
+      .firestore()
+      .collection("Users")
+      .doc(idUser)
+      .onSnapshot((u) => {
+        setUser({ id: u.id, ...u.data() });
+      });
 
     return () => getUser();
-  },[]);
+  }, []);
   console.log(user);
 
   const setCoordonates = (e) => {
-    fb.firestore().collection('Users').doc(idUser).update({
-      x: e.clientX,
-      y: e.clientY
-    })
-    .then(() => {
-      console.log("Coordonates updated")
-    })
-    .catch((err) => {
-      console.error('Error writing coordonates', err);
-    });
-  }
-  
+    fb.firestore()
+      .collection("Users")
+      .doc(idUser)
+      .update({
+        x: e.clientX,
+        y: e.clientY,
+      })
+      .then(() => {
+        console.log("Coordonates updated");
+      })
+      .catch((err) => {
+        console.error("Error writing coordonates", err);
+      });
+  };
 
   return (
     <div className="gameBody">
-      <div className="mouseArea" onClick={e => setCoordonates(e)}>
-     
-      
-    </div>
+      <div className="mouseArea" onClick={(e) => setCoordonates(e)}><img src=`../images/schwarzy.png` /></div>
       <Navbar props={(users, setUsers, user)} />
     </div>
   );

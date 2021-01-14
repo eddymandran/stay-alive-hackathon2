@@ -9,9 +9,10 @@ const fb = firebase;
 export default function Home() {
   const [pseudo, setPseudo] = useState("");
   const [isSetUser, setIsSetUser] = useState(false);
-  const [idUser, setIdUser] = useState('');
+  const [idUser, setIdUser] = useState("");
 
   const [notChosen, setNotChosen] = useState(false);
+  const [chosenPicturePath, setChosenPicturePath] = useState("schwarzy.png");
   const handleChosen = () => {
     setNotChosen(!notChosen);
   };
@@ -22,9 +23,9 @@ export default function Home() {
       .collection("Users")
       .add({
         name: pseudo,
-        picture: "logo_flstudio.jpeg",
+        picture: chosenPicturePath,
         x: 0,
-        y: 0
+        y: 0,
       })
       .then(function (res) {
         // console.log("Document successfully written!", res.id);
@@ -34,26 +35,26 @@ export default function Home() {
       .catch(function (error) {
         console.error("Error writing document: ", error);
       });
-    }
-  
+  };
+
   return (
-    <div className='home'>
-      <h1 className='titleHome'>
-        <span className='titleHome1'>Stay </span>Alive !
+    <div className="home">
+      <h1 className="titleHome">
+        <span className="titleHome1">Stay </span>Alive !
       </h1>
-      <p className='chooseAvatarStyle'>Choose your avatar</p>
-      <div className='chooseAvatarImgs'>
+      <p className="chooseAvatarStyle">Choose your avatar</p>
+      <div className="chooseAvatarImgs">
         <div
-          className={notChosen ? 'AvatarsLook1' : 'AvatarsLook1C'}
+          className={notChosen ? "AvatarsLook1" : "AvatarsLook1C"}
           onClick={handleChosen}
         ></div>
-        <div className='AvatarsLook2' onClick={handleChosen}></div>
-        <div className='AvatarsLook3' onClick={handleChosen}></div>
-        <div className='AvatarsLook4' onClick={handleChosen}></div>
-        <div className='AvatarsLook5' onClick={handleChosen}></div>
+        <div className="AvatarsLook2" onClick={handleChosen}></div>
+        <div className="AvatarsLook3" onClick={handleChosen}></div>
+        <div className="AvatarsLook4" onClick={handleChosen}></div>
+        <div className="AvatarsLook5" onClick={handleChosen}></div>
       </div>
-      <form className='formLogin' onSubmit={createUser}>
-        <label for='name' className='texteLabel'>
+      <form className="formLogin" onSubmit={createUser}>
+        <label for="name" className="texteLabel">
           Pseudo
         </label>
         <input
@@ -64,12 +65,14 @@ export default function Home() {
           onChange={(e) => setPseudo(e.target.value)}
         ></input>
         {!isSetUser ? (
-        <button type='submit' className='buttonHome'>
-          Rejoindre
-        </button>) : (
-        <Link to={`ChooseMap/${idUser}`}>
-          <input type='button' value='GO' className='buttonHome'/>
-          </Link>)}
+          <button type="submit" className="buttonHome">
+            Rejoindre
+          </button>
+        ) : (
+          <Link to={`ChooseMap/${idUser}`}>
+            <input type="button" value="GO" className="buttonHome" />
+          </Link>
+        )}
       </form>
     </div>
   );

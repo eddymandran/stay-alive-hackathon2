@@ -17,7 +17,10 @@ const breakPoints = [
   { width: 1200, itemsToShow: 4 },
 ];
 
-function ChooseMap() {
+function ChooseMap(props) {
+  const handleBackHomeClick = () => {
+    props.history.push("/");
+  };
   return (
     <div className="choosemap-body">
       <div className="titleChoooseMapContainer">
@@ -48,6 +51,11 @@ function ChooseMap() {
             <img style={{ width: "100%", height: "100%" }} src={Salle} />
           </Item>
         </Carousel>
+        <form className="choosemap-form">
+          <button onClick={handleBackHomeClick} className="button-back">
+            back to menu
+          </button>
+        </form>
       </div>
     </div>
   );

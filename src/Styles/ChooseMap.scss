@@ -31,11 +31,39 @@
   background-position: center;
   height: 100vh;
   padding-top: 5%;
+  overflow: hidden;
 }
 .App img {
   border: 3px solid black;
 }
 
+.App img:hover {
+  cursor: pointer;
+}
+
 .App {
   height: 100%;
+  padding-bottom: 5%;
+}
+
+.button-back {
+  width: 300px;
+  text-align: center;
+  height: 50px;
+  display: block;
+  margin: auto;
+  background-color: #424242;
+  border: 3px solid #424242;
+  border-radius: 10px;
+  font-family: "Bangers", cursive;
+  color: #81d4fa;
+  font-size: 2rem;
+}
+
+.button-back:hover {
+  cursor: pointer;
+}
+
+.choosemap-form {
+  padding-top: 80px;
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from './Navbar';
 import '../Styles/Game.css';
+import '../Styles/Board.css';
 import Board from './Board';
 
 export default function Game() {

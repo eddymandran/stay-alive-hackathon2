@@ -3,6 +3,7 @@ import "../Styles/Home.css";
 import { firebase } from "../services/firebase";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import moment from 'moment';
 
 const fb = firebase;
 
@@ -10,6 +11,7 @@ export default function Home() {
   const [pseudo, setPseudo] = useState("");
   const [isSetUser, setIsSetUser] = useState(false);
   const [idUser, setIdUser] = useState("");
+  const [idGame, setIdGame] = useState("");
 
   const [notChosen, setNotChosen] = useState(false);
   const [chosenPicturePath, setChosenPicturePath] = useState("schwarzy.png");
@@ -37,6 +39,21 @@ export default function Home() {
         console.error("Error writing document: ", error);
       });
   };
+
+  const createGame = async () => {
+    await fb.firestore()
+    .collection("Game")
+    .add({
+      date: fb.firestore.FieldValue.serverTimestamp()
+    })
+    .then(function (res) {
+      // console.log("Document successfully written!", res.id);
+      setIdGame(res.id);
+    })
+    .catch(function (error) {
+      console.error("Error writing document: ", error);
+    });
+  }
 
   return (
     <div className="home">
@@ -68,12 +85,21 @@ export default function Home() {
         
         {!isSetUser ? (
           <button type="submit" className="buttonHome">
-            Rejoindre
+            Créer mon pseudo
           </button>
         ) : (
-          <Link to={`ChooseMap/${idUser}`}>
-            <input type="button" value="GO" className="buttonHome" />
-          </Link>
+          <div>
+            {/* <Link to={`ChooseMap/${idUser}`}>
+              <input type="button" value="Create" className="buttonHome" onClick={createGame} />
+            </Link> */}
+            <input type="button" value="Create" className="buttonHome" onClick={createGame} />
+            <span>{idGame !== "" ? idGame : ""}</span>
+          <br/>
+            <Link to={`game/${idUser}`} >
+              <input type="button" value="Join : " className="buttonHome" />
+            </Link>
+            <input type="text" className="gameInput" placeholder="Token Game" onChange={(e) => setIdGame(e.target.value)} />
+         </div>
         )}
       </form>
     </div>

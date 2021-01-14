@@ -20,15 +20,12 @@ const breakPoints = [
 function ChooseMap() {
   return (
     <div className="choosemap-body">
-      <div className="choosemap-title-container">
-        {" "}
-        <h1
-          className="choosemap-title"
-          style={{ textAlign: "center", padding: "20px" }}
-        >
-          Choose your map
+      <div className="titleChoooseMapContainer">
+        <h1 className="titleChooseMap">
+          <span className="titleChooseMap1">Choose </span>Your Map !
         </h1>
       </div>
+
       <div className="App">
         <Carousel breakPoints={breakPoints}>
           <Item>

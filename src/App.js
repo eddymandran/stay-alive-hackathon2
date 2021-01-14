@@ -12,7 +12,7 @@ function App() {
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/choosemap" component={ChooseMap} />
-            <Route path="/name" component={Game} />
+            <Route path="/game" component={Game} />
           </Switch>
         </main>
       </Router>

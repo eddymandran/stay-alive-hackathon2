@@ -1,0 +1,41 @@
+.titleChooseMap {
+  color: #00ffe0;
+  font-size: 4rem;
+  font-family: "Bangers", cursive;
+  letter-spacing: 5px;
+  width: 50%;
+  height: auto;
+  text-align: center;
+  margin: auto;
+  background-color: #424242;
+  border-radius: 10px;
+  border: 1rem solid orange;
+}
+.titleChoooseMapContainer {
+  height: 300px;
+}
+.titleChooseMap1 {
+  color: #81d4fa;
+  font-size: 4rem;
+  font-family: "Bangers", cursive;
+  letter-spacing: 5px;
+  width: 100%;
+  height: auto;
+  text-align: center;
+  padding-top: 5%;
+}
+.choosemap-body {
+  background: url("../images/Cafe.png");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  padding-top: 5%;
+}
+.App img {
+  border: 3px solid black;
+}
+
+.App {
+  height: 100%;
+}

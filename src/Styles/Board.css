@@ -1,0 +1,22 @@
+#container {
+    position: relative;
+    border: 1px solid black;
+    height:100%;
+    width: 100%;
+    
+  }
+
+
+
+#scope {
+  width: 50px;
+}
+
+#target {
+  width: 100px;
+}
+
+.left{
+width: 200px;
+height: 100%;
+}

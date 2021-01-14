@@ -80,7 +80,6 @@ export default function Board(props) {
     let targetPosY = document.getElementById("target").y;
     let targetPosYEdge = targetPosY + 100;
     let newScore = scorePlayer;
-  }
 
     if (
       bulletPosX > targetPosX &&

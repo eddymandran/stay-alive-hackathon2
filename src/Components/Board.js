@@ -37,13 +37,13 @@ export default function Board() {
 
   function shoot() {
     let bulletPosX = event.x - 32;
-    console.log(event.x);
     let bulletPosY = event.y - 32;
     let targetPosX = document.getElementById('target').x;
     let targetPosXEdge = targetPosX + 100;
     let targetPosY = document.getElementById('target').y;
     let targetPosYEdge = targetPosY + 100;
     let newScore = scorePlayer;
+    
     if (
       bulletPosX > targetPosX &&
       bulletPosX < targetPosXEdge &&

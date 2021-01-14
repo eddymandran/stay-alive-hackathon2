@@ -55,11 +55,11 @@ export default function Board() {
       newScore++;
       setScorePlayer(newScore);  
       }
-      
-    } else {
-      newScore--;
-      setScorePlayer(newScore); 
-    }
+      else {
+        newScore--;
+        setScorePlayer(newScore); 
+      }
+    } 
   }
 
 

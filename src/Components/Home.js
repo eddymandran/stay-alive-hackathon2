@@ -14,7 +14,6 @@ export default function Home() {
   const [idGame, setIdGame] = useState("");
 
   const [notChosen, setNotChosen] = useState(false);
-  const [chosenPicturePath, setChosenPicturePath] = useState("schwarzy.png");
   const handleChosen = () => {
     setNotChosen(!notChosen);
   };
@@ -25,7 +24,7 @@ export default function Home() {
       .collection("Users")
       .add({
         name: pseudo,
-        picture: chosenPicturePath,
+        picture: "schwarzy.png",
         x: 0,
         y: 0,
         score: 0,

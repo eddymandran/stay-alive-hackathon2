@@ -11,10 +11,24 @@
   border-radius: 10px;
   border: 1rem solid orange;
 }
-.titleChoooseMapContainer {
-  height: 300px;
+.ChoiceContainer {
+display: grid;
+grid-template-columns: repeat(2, 500px);
+grid-template-rows: repeat(2, 300px);
+grid-column-gap: 10px;
+grid-row-gap: 10px;
+margin-top: 50px;
+margin-left: auto;
+margin-right: auto;
+width: 50%;
+
 }
-.titleChooseMap1 {
+
+.world1{
+  text-align: center;
+}
+
+ .titleChooseMap1 {
   color: #81d4fa;
   font-size: 4rem;
   font-family: "Bangers", cursive;
@@ -33,18 +47,13 @@
   padding-top: 5%;
   overflow: hidden;
 }
-.App img {
+.ChoiceContainer img {
   border: 3px solid black;
 }
 
-.App img:hover {
+.ChoiceContainer img:hover {
   cursor: pointer;
-}
-
-.App {
-  height: 100%;
-  padding-bottom: 5%;
-}
+}  
 
 .button-back {
   width: 300px;
@@ -64,6 +73,3 @@
   cursor: pointer;
 }
 
-.choosemap-form {
-  padding-top: 80px;
-}

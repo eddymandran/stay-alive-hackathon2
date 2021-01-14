@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Navbar from "./Navbar";
 import "../Styles/Game.css";
 import { useState } from "react";

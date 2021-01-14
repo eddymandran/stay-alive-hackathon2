@@ -4,20 +4,18 @@ export const GeneralContext = createContext();
 
 const GeneralContextProvider = ({ children }) => {
   const [scorePlayer, setScorePlayer] = useState(0);
-  const [background, setBackground] = useState("App");
-
-  const ChoosenWallpaper = (fond) => {
-    setBackground(fond);
-  };
+  const [backgroundApp, setBackgroundApp] = useState("home");
+  const [worldID, setWorldID] = useState();
 
   return (
     <GeneralContext.Provider
       value={{
         scorePlayer,
         setScorePlayer,
-        background,
-        setBackground,
-        ChoosenWallpaper,
+        backgroundApp,
+        setBackgroundApp,
+        worldID,
+        setWorldID
       }}
     >
       {children}

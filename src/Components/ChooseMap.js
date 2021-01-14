@@ -1,26 +1,28 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import Carousel from "react-elastic-carousel";
-import Item from "./Item";
+import React, { useContext, useEffect } from "react";
+import { GeneralContext } from "../Contexts/GeneralContext";
 import "../Styles/ChooseMap.scss";
 import Bureau1 from "../images/Bureau1.png";
 import Bibliotheque from "../images/Bibliotheque.png";
 import Foret from "../images/Foret.png";
 import Jardin from "../images/Jardin.png";
-import Balcon from "../images/Balcon.png";
-import Salle from "../images/Salle.png";
-
-const breakPoints = [
-  { width: 1, itemsToShow: 1 },
-  { width: 550, itemsToShow: 2 },
-  { width: 768, itemsToShow: 3 },
-  { width: 1200, itemsToShow: 4 },
-];
 
 function ChooseMap(props) {
   const handleBackHomeClick = () => {
     props.history.push("/");
   };
+  const { worldID, setWorldID } = useContext(GeneralContext);
+
+  const bureau = "bureau";
+  const bibliotheque = "bibliotheque"
+  const foret = "foret"
+  const jardin = "jardin"
+
+  const getWorldId = (id) => {
+    setWorldID(id);
+    console.log("console log de l'id: " + id);
+    console.log("console log du state " + worldID);
+  };
+
   return (
     <div className="choosemap-body">
       <div className="titleChoooseMapContainer">
@@ -29,58 +31,25 @@ function ChooseMap(props) {
         </h1>
       </div>
 
-      <div className="App">
-        <Carousel breakPoints={breakPoints}>
-          <Item>
-            <img
-              className="bureau"
-              style={{ width: "100%", height: "100%" }}
-              src={Bureau1}
-            />
-          </Item>
-          <Item>
-            {" "}
-            <img
-              className="bibliothèque"
-              style={{ width: "100%", height: "100%" }}
-              src={Bibliotheque}
-            />
-          </Item>
-          <Item>
-            <img
-              className="foret"
-              style={{ width: "100%", height: "100%" }}
-              src={Foret}
-            />
-          </Item>
-          <Item>
-            <img
-              className="jardin"
-              style={{ width: "100%", height: "100%" }}
-              src={Jardin}
-            />
-          </Item>
-          <Item>
-            <img
-              className="balcon"
-              style={{ width: "100%", height: "100%" }}
-              src={Balcon}
-            />
-          </Item>
-          <Item>
-            <img
-              className="salle"
-              style={{ width: "100%", height: "100%" }}
-              src={Salle}
-            />
-          </Item>
-        </Carousel>
-        <form className="choosemap-form">
-          <button onClick={handleBackHomeClick} className="button-back">
-            back to menu
-          </button>
-        </form>
+      <div className="ChoiceContainer">
+        <div className="World1">
+          <img src={Bureau1} alt="bureau" onClick={() => getWorldId(bureau)} />
+        </div>
+        <div className="World2">
+          <img src={Bibliotheque} alt="bibliothèque" onClick={() => getWorldId(bibliotheque)}/>
+        </div>
+        <div className="World3">
+          <img src={Foret} alt="foret" onClick={() => getWorldId(foret)}/>
+        </div>
+        <div className="World4">
+          <img className="jardin" src={Jardin} alt="jardin"  onClick={() => getWorldId(jardin)}/>
+        </div>
       </div>
+      <form className="choosemap-form">
+        <button onClick={handleBackHomeClick} className="button-back">
+          back to menu
+        </button>
+      </form>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 import '../Styles/Home.css';
 
 export default function Home() {
@@ -6,8 +6,11 @@ export default function Home() {
   const handleChosen = () => {
     setNotChosen(!notChosen);
   };
+ 
+ 
+
   return (
-    <div className='home'>
+  <div className="home" >
       <h1 className='titleHome'>
         <span className='titleHome1'>Stay </span>Alive !
       </h1>

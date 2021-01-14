@@ -1,48 +1,186 @@
-body,
-html {
-  font-family: sans-serif;
+body {
+	background-color: black;
+	font-family:  'Jolly Lodger', cursive;
 }
 
-#button {
-  transition-duration: 0.3s;
+.game-window {
+  width: 700px;
+  height: 340px;
+  background-color: #80ada3;
+  position: relative;
+  margin: 0 auto;
+  overflow: hidden;
+  cursor: url('https://img.informer.com/icons/png/32/113/113532.png') 16 16, crosshair;
+  font-size: 40px;
+  text-align: center;
+  user-select: none;
+}
+
+#zombie {
   border-radius: 50%;
-  width: 30px;
+  width: 10%;
+  height: 20%;
+  position: relative;
+  user-select: none;
+  display: none;
+}
+
+#btn {
+  text-transform: uppercase;
+  width: 400px;
+  height: 50px;
+  padding: 5px;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  position: absolute;
+  background-color: #c40100;
+  color: #000;
+  font-weight: bold;
+  border: #fff solid 4px;
+  border-radius: 2%;
+  font-size: 26px;
+}
+
+	#btn:hover {
+		background-color: red;
+	}
+
+
+#exp {
+  border-radius: 50%;
+  width: 10%;
+  height: 20%;
+  position: relative;
+  user-select: none;
+  display: none;
+  animation: explosion 1.2s 1;
+     }
+	
+	@keyframes explosion {
+		  1% {opacity: 0;}
+		  2% {opacity: 1;}
+      90% {transform: scale(2);}
+      100% {opacity:0;}	
+         }
+
+#progress-bar {
+	width: 700px;
   height: 30px;
-  font-size: 20px;
+  background-color: limegreen;
+  position: relative;
+	margin: 0 auto;
+	}
+	
+#progress-bar-active {
+	width: 0%;
+  height: 30px;
+  background-color: red;
+	}
+	
+#txt {
+  top: 15%;
+  padding: 30px;
+  position: relative;
+  color: #000;
+	}
+	
+#header, p {
+	margin: 0;
+	margin-top: 20px;
+	color: red;
+	padding: 0px;
+	text-align: center;
+	font-size: 60px;
+	user-select: none;
+	font-weight: bold;
+}
+	
+p { 
+	font-size: 40px;
 }
 
-#button:hover {
-  background-color: rgb(0, 0, 0);
-  border: none;
-  color: white;
-  cursor: pointer;
-}
-
-#button:focus {
-  outline: 0;
-}
-
-
-#controls-container {
+#rules{
+	color: #fff;
+	padding: 0px;
+	text-align: center;
+	font-size: 20px;
+	user-select: none;
   padding: 15px;
 }
 
-#dots-container {
-  position: relative;
-  border: 1px solid black;
-  height: 800px;
-  width: 800px;
-  margin: auto;
-  margin-top: 50px;
+#nosound input {
+  position: absolute;
+  display: none;
+  cursor: pointer;
+}
+	
+	#audioBtn {
+	height: 30px;
+	position: absolute;
+	top: 27%;
+	left: 70%;
+	filter:hue-rotate(160deg);
+			}
+	
+	#audioBtn:hover {
+		height: 35px;
+	}
 
+@media only screen and (max-width: 800px) {
+  .game-window {
+    width: 650px;
+  }
+  #progress-bar {
+    width: 650px;
+  }
+   #btn {
+    width: 400px;
+  }
+  #audioBtn {
+	 left: 78%;
+			}
 }
 
-#dots-container div {
-  width: 100px;
-  height: 100px;
-  background-color: "red";
+@media only screen and (max-width: 650px) {
+  .game-window {
+    width: 450px;
+  }
+  #progress-bar {
+    width: 450px;
+  }
+   #btn {
+    width: 300px;
+  }
+   #audioBtn {
+	 left: 80%;
+			}
+  #zombie {
+    width:15%;
+  }
+  #exp {
+    width: 15%;
+  }
 }
 
-li {
-  margin-bottom: 10px;
+@media only screen and (max-width: 450px) {
+  .game-window {
+    width: 350px;
+  }
+  #progress-bar {
+    width: 350px;
+  }
+  #btn {
+    width: 200px;
+  }
+   #audioBtn {
+	 left: 84%;
+    top: 22%;
+			}
+  #header {
+    font-size: 40px;
+  }
+  p {
+    font-size: 30px;
+  }
 }

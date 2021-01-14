@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './Components/Home';
 import ChooseMap from './Components/ChooseMap';
 import Game from './Components/Game';
-import GeneralContextProvider from './Contexts/GeneralContextProvider';
+import GeneralContextProvider from './Contexts/GeneralContext';
 
 function App() {
   return (

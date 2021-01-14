@@ -1,7 +1,7 @@
 /* eslint-disable no-restricted-globals */
 import React, { useContext } from 'react';
 import '../Styles/Board.css';
-import { GeneralContext } from '../Contexts/GeneralContextProvider';
+import { GeneralContext } from '../Contexts/GeneralContext';
 
 export default function Board() {
   const { scorePlayer, setScorePlayer } = useContext(GeneralContext);
@@ -54,15 +54,12 @@ export default function Board() {
       bulletPosY < targetPosYEdge
     ) {
       newScore++;
-      setScorePlayer(newScore);  
-      }
-      else {
-        newScore--;
-        setScorePlayer(newScore); 
-      }
-    } 
+      setScorePlayer(newScore);
+    } else {
+      newScore--;
+      setScorePlayer(newScore);
+    }
   }
-
 
   return (
     <div id='container'>

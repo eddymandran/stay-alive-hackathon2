@@ -1,3 +1,6 @@
+
+import '../Styles/Board.css';
+import Board from './Board';
 import React, { useEffect } from "react";
 import Navbar from "./Navbar";
 import "../Styles/Game.css";
@@ -24,7 +27,6 @@ export default function Game(props) {
   const idUser = params.iduser;
   const [users, setUsers] = useState([]);
   const [user, setUser] = useState([]);
-  const [chosenPicturePath, setChosenPicturePath] = useState("schwarzy.png");
 
   useEffect(() => {
     const getUser = fb
@@ -37,28 +39,12 @@ export default function Game(props) {
 
     return () => getUser();
   }, []);
-  console.log(user);
 
-  const setCoordonates = (e) => {
-    fb.firestore()
-      .collection("Users")
-      .doc(idUser)
-      .update({
-        x: e.clientX,
-        y: e.clientY,
-      })
-      .then(() => {
-        console.log("Coordonates updated");
-      })
-      .catch((err) => {
-        console.error("Error writing coordonates", err);
-      });
-  };
-
+  
   return (
-    <div className="gameBody">
-      <div className="mouseArea" onClick={(e) => setCoordonates(e)}><img src=`../images/schwarzy.png` /></div>
-      <Navbar props={(users, setUsers, user)} />
+    <div className='gameBody'>
+      <Navbar props={(users, setUsers, user)}/>
+      <Board props={user}/>
     </div>
   );
 }

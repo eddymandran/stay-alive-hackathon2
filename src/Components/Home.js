@@ -4,7 +4,9 @@ import '../Styles/Home.css';
 export default function Home() {
   return (
     <div className='home'>
-      <h1 className='titleHome'> Stay Alive</h1>
+      <h1 className='titleHome'>
+        <span className='titleHome1'>Stay </span>Alive !
+      </h1>
       <form className='formLogin'>
         <label for='name' className='texteLabel'>
           Pseudo

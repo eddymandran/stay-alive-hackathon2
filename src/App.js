@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./Components/Home";
 import ChooseMap from "./Components/ChooseMap";
 import Game from "./Components/Game";
-import "./App.css";
 
 function App() {
   const [users, setUsers] = useState([]);

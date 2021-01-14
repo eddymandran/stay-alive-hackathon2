@@ -34,7 +34,7 @@ export default function Board(props) {
     });
   }
 
-  const setCoordonates = (e) => {
+/*   const setCoordonates = (e) => {
     fb.firestore()
       .collection("Users")
       .doc(user.props.id)
@@ -47,7 +47,7 @@ export default function Board(props) {
       })
       .catch((err) => {
         console.error("Error writing coordonates", err);
-      });
+      }); */
     /*     setUser({x: e.clientX, y: e.clientY});
     console.log(user); */
   };

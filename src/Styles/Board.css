@@ -1,0 +1,25 @@
+#container {
+    position: relative;
+    border: 1px solid black;
+    height:100%;
+    width: 100%;
+    
+  }
+
+img {
+  position: absolute;
+}
+
+#scope {
+  width: 50px;
+}
+
+#target {
+  width: 100px;
+  z-index: -1;
+}
+
+.left{
+width: 200px;
+height: 100%;
+}

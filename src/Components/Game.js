@@ -3,6 +3,10 @@ import Navbar from "./Navbar";
 import "../Styles/Game.css";
 import { useState } from "react";
 import { firebase } from "../services/firebase";
+import '../Styles/Board.css';
+import Board from './Board';
+
+
 const fb = firebase;
 
 const useMove = () => {
@@ -43,6 +47,7 @@ export default function Game(props) {
   }
   
 
+
   return (
     <div className="gameBody">
       <div className="mouseArea" onMouseMove={handleMouseMove} onClick={e => setCoordonates(e, x ,y)}>
@@ -50,6 +55,7 @@ export default function Game(props) {
       
     </div>
       <Navbar props={(users, setUsers, pseudo)} />
+      <Board />
     </div>
   );
 }

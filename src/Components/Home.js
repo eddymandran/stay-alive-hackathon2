@@ -24,11 +24,11 @@ export default function Home() {
       </div>
       <form className='formLogin'>
         <label for='name' className='texteLabel'>
-          Pseudo
+          Nickname
         </label>
         <input type='text' name='name' className='pseudoInput'></input>
         <button type='submit' className='buttonHome'>
-          Rejoindre
+          Join
         </button>
       </form>
     </div>

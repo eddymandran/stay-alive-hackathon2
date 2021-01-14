@@ -32,23 +32,47 @@ function ChooseMap(props) {
       <div className="App">
         <Carousel breakPoints={breakPoints}>
           <Item>
-            <img style={{ width: "100%", height: "100%" }} src={Bureau1} />
+            <img
+              className="bureau"
+              style={{ width: "100%", height: "100%" }}
+              src={Bureau1}
+            />
           </Item>
           <Item>
             {" "}
-            <img style={{ width: "100%", height: "100%" }} src={Bibliotheque} />
+            <img
+              className="bibliothèque"
+              style={{ width: "100%", height: "100%" }}
+              src={Bibliotheque}
+            />
           </Item>
           <Item>
-            <img style={{ width: "100%", height: "100%" }} src={Foret} />
+            <img
+              className="foret"
+              style={{ width: "100%", height: "100%" }}
+              src={Foret}
+            />
           </Item>
           <Item>
-            <img style={{ width: "100%", height: "100%" }} src={Jardin} />
+            <img
+              className="jardin"
+              style={{ width: "100%", height: "100%" }}
+              src={Jardin}
+            />
           </Item>
           <Item>
-            <img style={{ width: "100%", height: "100%" }} src={Balcon} />
+            <img
+              className="balcon"
+              style={{ width: "100%", height: "100%" }}
+              src={Balcon}
+            />
           </Item>
           <Item>
-            <img style={{ width: "100%", height: "100%" }} src={Salle} />
+            <img
+              className="salle"
+              style={{ width: "100%", height: "100%" }}
+              src={Salle}
+            />
           </Item>
         </Carousel>
         <form className="choosemap-form">

@@ -8,45 +8,51 @@ const fb = firebase;
 
 export default function Home() {
   const [chosen, setChosen] = useState(0);
+  const [pictureName, setPictureName] = useState("");
   const handleChosen1 = (e) => {
     setChosen(1);
     if (e.target.className === 'AvatarsLook1Active') {
       setChosen();
     }
+    setPictureName("schwarzy");
   };
   const handleChosen2 = (e) => {
     setChosen(2);
     if (e.target.className === 'AvatarsLook2Active') {
       setChosen();
     }
+    setPictureName("einstein");
   };
   const handleChosen3 = (e) => {
     setChosen(3);
     if (e.target.className === 'AvatarsLook3Active') {
       setChosen();
     }
+    setPictureName("madonna");
   };
   const handleChosen4 = (e) => {
     setChosen(4);
     if (e.target.className === 'AvatarsLook4Active') {
       setChosen();
     }
+    setPictureName("obama");
   };
   const handleChosen5 = (e) => {
     setChosen(5);
     if (e.target.className === 'AvatarsLook5Active') {
       setChosen();
     }
+    setPictureName("lee");
   };
   const [pseudo, setPseudo] = useState('');
   const [isSetUser, setIsSetUser] = useState(false);
   const [idUser, setIdUser] = useState("");
   const [idGame, setIdGame] = useState("");
 
-  const [notChosen, setNotChosen] = useState(false);
-  const handleChosen = () => {
-    setNotChosen(!notChosen);
-  };
+  // const [notChosen, setNotChosen] = useState(false);
+  // const handleChosen = () => {
+  //   setNotChosen(!notChosen);
+  // };
 
   const createUser = (event) => {
     event.preventDefault();
@@ -54,7 +60,7 @@ export default function Home() {
       .collection('Users')
       .add({
         name: pseudo,
-        picture: "schwarzy.png",
+        picture: pictureName !== "" ? pictureName : "schwarzy",
         x: 0,
         y: 0,
         score: 0,
@@ -112,24 +118,27 @@ export default function Home() {
           className={chosen === 5 ? 'AvatarsLook5Active' : 'AvatarsLook5'}
         ></div>
       </div>
-      <form className='formLogin' onSubmit={createUser}>
-        <label for='name' className='texteLabel'>
-          Pseudo
-        </label>
-        <input
-          type='text'
-          name='name'
-          className='pseudoInput'
-          value={pseudo}
-          onChange={(e) => setPseudo(e.target.value)}
-        ></input>
+      
 
         {!isSetUser ? (
+          <form className='formLogin' onSubmit={createUser}>
+          <label for='name' className='texteLabel'>
+            Pseudo
+          </label>
+          <input
+            type='text'
+            name='name'
+            className='pseudoInput'
+            value={pseudo}
+            onChange={(e) => setPseudo(e.target.value)}
+          ></input>
           <button type="submit" className="buttonHome">
             Créer mon pseudo
           </button>
+
+      </form>
         ) : (
-          <div>
+          <div className='formLogin'>
             {/* <Link to={`ChooseMap/${idUser}`}>
               <input type="button" value="Create" className="buttonHome" onClick={createGame} />
             </Link> */}
@@ -142,7 +151,6 @@ export default function Home() {
             <input type="text" className="gameInput" placeholder="Token Game" onChange={(e) => setIdGame(e.target.value)} />
          </div>
         )}
-      </form>
     </div>
   );
 }

@@ -4,6 +4,10 @@ import '../Styles/Board.css';
 import { GeneralContext } from '../Contexts/GeneralContext';
 import nerf from '../images/nerf.png';
 import schwarzy from "../images/schwarzy.png";
+import obama from "../images/obama.png";
+import madonna from "../images/madonna.png";
+import einstein from "../images/einstein.png";
+import lee from "../images/lee.png";
 import { firebase } from "../services/firebase";
 const fb = firebase;
 
@@ -14,6 +18,22 @@ export default function Board(props) {
     document.getElementById('scope').style.marginTop = event.y - 32 + 'px';
   };
   const user = props;
+  const onChangePicture = (picture) => {
+    switch (picture){
+      case 'schwarzy':
+        return schwarzy;
+      case 'obama':
+        return obama;
+      case 'einstein':
+        return einstein;
+      case 'madonna':
+        return madonna;
+      case 'lee':
+        return lee;
+      default:
+        return schwarzy;
+    }
+  }
 
   const speed = 22;
   let leftSpace = 0;
@@ -100,9 +120,9 @@ export default function Board(props) {
 
   return (
     <div id='container'>
-      
-      <div 
-        id='target'
+    
+      <div
+      id='containerTarget' 
         style={{
               position: "absolute",
               top: `${user.props.y}px`,
@@ -110,10 +130,11 @@ export default function Board(props) {
               zIndex: -1
             }}>
         <img
-            alt='target'
-            src={schwarzy}
+        id='target'
+            alt={onChangePicture(user.props.picture)}
+            src={onChangePicture(user.props.picture)}
           />
-        <h2>{user.props.name}</h2>
+        <h4>{user.props.name}</h4>
       </div>
       
         

@@ -19,6 +19,39 @@ export default function Board(props) {
   let leftSpace = 0;
   let topSpace = 0;
 
+  const handleScorePlayer = async (scorePlayer, iduser) =>{
+    await fb.firestore()
+    .collection("Users")
+    .doc(iduser)
+    .update({
+      score: scorePlayer
+    })
+    .then((res) => {
+      console.log(res.data);
+    })
+    .catch((err) => {
+      console.error("Error writing coordonates", err);
+    });
+  }
+
+  const setCoordonates = (e) => {
+    fb.firestore()
+      .collection("Users")
+      .doc(user.props.id)
+      .update({
+        x: e.clientX,
+        y: e.clientY,
+      })
+      .then((res) => {
+        console.log("Coordonates updated");
+      })
+      .catch((err) => {
+        console.error("Error writing coordonates", err);
+      });
+    /*     setUser({x: e.clientX, y: e.clientY});
+    console.log(user); */
+  };
+
   document.body.onkeydown = function () {
     const myKey = event.keyCode;
 
@@ -56,53 +89,44 @@ export default function Board(props) {
     ) {
       newScore++;
       setScorePlayer(newScore);
+      
     } else {
       newScore--;
       setScorePlayer(newScore);
     }
+    handleScorePlayer(newScore, user.props.id);
   }
-  const setCoordonates = (e) => {
-    fb.firestore()
-      .collection("Users")
-      .doc(user.props.id)
-      .update({
-        x: e.clientX,
-        y: e.clientY,
-      })
-      .then((res) => {
-        console.log("Coordonates updated");
-      })
-      .catch((err) => {
-        console.error("Error writing coordonates", err);
-      });
-    /*     setUser({x: e.clientX, y: e.clientY});
-    console.log(user); */
-  };
+  
 
   return (
-    <div id='container' onClick={(e) => setCoordonates(e)}>
+    <div id='container'>
       
-      <img
-          src={schwarzy}
-          alt={`avatar${user.props.picture}`}
-          style={{
-            position: "absolute",
-            top: `${user.props.y}px`,
-            left: `${user.props.x}px`,
-            zIndex: 3
-          }}
-        />
+      <div 
+        id='target'
+        style={{
+              position: "absolute",
+              top: `${user.props.y}px`,
+              left: `${user.props.x}px`,
+              zIndex: -1
+            }}>
+        <img
+            alt='target'
+            src={schwarzy}
+          />
+        <h2>{user.props.name}</h2>
+      </div>
+      
+        
       <img
         src={nerf}
         id='scope'
         onClick={shoot}
         alt='scope'
+        style={{
+          position: "absolute"
+        }}
       />
-      <img
-        src='http://www.clker.com/cliparts/v/m/O/4/Z/t/target-board-hi.png'
-        id='target'
-        alt='target'
-      />
+     
       <h1>STAY ALIVE !!</h1>
     </div>
   );

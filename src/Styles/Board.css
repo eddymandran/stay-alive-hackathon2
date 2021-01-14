@@ -6,9 +6,7 @@
     
   }
 
-img {
-  position: absolute;
-}
+
 
 #scope {
   width: 50px;
@@ -16,7 +14,6 @@ img {
 
 #target {
   width: 100px;
-  z-index: -1;
 }
 
 .left{

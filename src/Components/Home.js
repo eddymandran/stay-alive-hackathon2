@@ -26,6 +26,7 @@ export default function Home() {
         picture: chosenPicturePath,
         x: 0,
         y: 0,
+        score: 0,
       })
       .then(function (res) {
         // console.log("Document successfully written!", res.id);
@@ -64,6 +65,7 @@ export default function Home() {
           value={pseudo}
           onChange={(e) => setPseudo(e.target.value)}
         ></input>
+        
         {!isSetUser ? (
           <button type="submit" className="buttonHome">
             Rejoindre

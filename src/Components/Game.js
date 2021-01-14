@@ -45,13 +45,6 @@ export default function Game(props) {
     <div className='gameBody'>
       <Navbar props={(users, setUsers, user)}/>
       <Board props={user}/>
-    {/* <div className="gameBody">
-      <div className="mouseArea" >
-        
-
-        <img src={`../images/${user.picture}`} alt={`avatar${user.picture}`} style={{ position: 'absolute', top: `${user.y}px`, left: `${user.x}px`}}/>
-      </div>
-    </div> */}
     </div>
   );
 }

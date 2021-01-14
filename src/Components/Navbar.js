@@ -10,12 +10,12 @@ import { useState } from "react";
 
 const fb = firebase;
 
-const audioClips = new Howl({
-  src: [gagne],
-});
-const audioClips1 = new Howl({
-  src: [pump],
-});
+// const audioClips = new Howl({
+//   src: [gagne],
+// });
+// const audioClips1 = new Howl({
+//   src: [pump],
+// });
 
 export default function Navbar() {
   const { scorePlayer } = useContext(GeneralContext);
@@ -23,13 +23,13 @@ export default function Navbar() {
 
   function goodPlayer() {
     if (scorePlayer === 10 || scorePlayer === 20) {
-      audioClips.play();
+      //audioClips.play();
       addToast('Vous êtes déchainé !', {
         appearance: 'success',
         autoDismiss: true,
       });
     } else if (scorePlayer === -1 || scorePlayer === -10) {
-      audioClips1.play();
+      //audioClips1.play();
       addToast('Vous dormez ??? Debout la dedans !!!', {
         appearance: 'error',
         autoDismiss: true,

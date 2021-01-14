@@ -1,6 +1,5 @@
-
-import '../Styles/Board.css';
-import Board from './Board';
+import "../Styles/Board.css";
+import Board from "./Board";
 import React, { useEffect } from "react";
 import Navbar from "./Navbar";
 import "../Styles/Game.css";
@@ -38,13 +37,12 @@ export default function Game(props) {
       });
 
     return () => getUser();
-  }, []);
+  });
 
-  
   return (
-    <div className='gameBody'>
-      <Navbar props={(users, setUsers, user)}/>
-      <Board props={user}/>
+    <div className="gameBody">
+      <Navbar props={(users, setUsers, user)} />
+      <Board props={user} />
     </div>
   );
 }

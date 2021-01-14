@@ -12,7 +12,7 @@ export default function Home() {
   const [idUser, setIdUser] = useState("");
 
   const [notChosen, setNotChosen] = useState(false);
-  const [chosenPicturePath, setChosenPicturePath] = useState("schwarzy.png");
+  const [chosenPicturePath] = useState("schwarzy.png");
   const handleChosen = () => {
     setNotChosen(!notChosen);
   };
@@ -65,7 +65,7 @@ export default function Home() {
           value={pseudo}
           onChange={(e) => setPseudo(e.target.value)}
         ></input>
-        
+
         {!isSetUser ? (
           <button type="submit" className="buttonHome">
             Rejoindre

@@ -11,8 +11,8 @@ function App() {
         <main>
           <Switch>
             <Route path='/' exact component={Home} />
-            <Route path='/ChooseMap' component={ChooseMap} />
-            <Route path='/Game' component={Game} />
+            <Route path='/choosemap' component={ChooseMap} />
+            <Route path='/game' component={Game} />
           </Switch>
         </main>
       </Router>

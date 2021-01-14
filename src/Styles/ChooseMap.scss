@@ -1,7 +1,23 @@
+.choosemap-title {
+  background-color: #73ebce;
+  text-align: center;
+}
+.choosemap-title-container {
+  height: 350px;
+  width: 100%;
+  text-align: center;
+}
 .choosemap-body {
   background: url("../images/Cafe.png");
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
   height: 100vh;
+}
+.App img {
+  border: 3px solid black;
+}
+
+.App {
+  height: 100%;
 }

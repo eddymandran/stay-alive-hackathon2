@@ -7,6 +7,8 @@ import Bureau1 from "../images/Bureau1.png";
 import Bibliotheque from "../images/Bibliotheque.png";
 import Foret from "../images/Foret.png";
 import Jardin from "../images/Jardin.png";
+import Balcon from "../images/Balcon.png";
+import Salle from "../images/Salle.png";
 
 const breakPoints = [
   { width: 1, itemsToShow: 1 },
@@ -18,26 +20,36 @@ const breakPoints = [
 function ChooseMap() {
   return (
     <div className="choosemap-body">
-      <h1 style={{ textAlign: "center" }}>Choose your map</h1>
+      <div className="choosemap-title-container">
+        {" "}
+        <h1
+          className="choosemap-title"
+          style={{ textAlign: "center", padding: "20px" }}
+        >
+          Choose your map
+        </h1>
+      </div>
       <div className="App">
         <Carousel breakPoints={breakPoints}>
           <Item>
-            <img src={Bureau1} />
+            <img style={{ width: "100%", height: "100%" }} src={Bureau1} />
           </Item>
           <Item>
             {" "}
-            <img src={Bibliotheque} />
+            <img style={{ width: "100%", height: "100%" }} src={Bibliotheque} />
           </Item>
           <Item>
-            <img src={Foret} />
+            <img style={{ width: "100%", height: "100%" }} src={Foret} />
           </Item>
           <Item>
-            <img src={Jardin} />
+            <img style={{ width: "100%", height: "100%" }} src={Jardin} />
           </Item>
-          <Item>Five</Item>
-          <Item>Six</Item>
-          <Item>Seven</Item>
-          <Item>Eight</Item>
+          <Item>
+            <img style={{ width: "100%", height: "100%" }} src={Balcon} />
+          </Item>
+          <Item>
+            <img style={{ width: "100%", height: "100%" }} src={Salle} />
+          </Item>
         </Carousel>
       </div>
     </div>

@@ -1,7 +1,21 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import '../Styles/Navbar.css';
+import { GeneralContext } from '../Contexts/GeneralContext';
 
 export default function Navbar() {
+  const { scorePlayer } = useContext(GeneralContext);
+
+  function goodPlayer() {
+    if (scorePlayer === 10) {
+      window.alert('Vous etes déchainé');
+    } else if (scorePlayer === -10) {
+      window.alert('Vous jouez avec vos coudes ?');
+    }
+  }
+  useEffect(() => {
+    goodPlayer();
+  }, [scorePlayer]);
+
   return (
     <div className='scoreBar'>
       <div className='zoneAvatar'>
@@ -10,7 +24,7 @@ export default function Navbar() {
       </div>
       <hr />
       <div className='zoneScore'>
-        <h5 className='title5'>Score</h5>
+        <h5 className='title5'>{scorePlayer}</h5>
         <img alt='schtroumph'></img>
       </div>
       <hr />

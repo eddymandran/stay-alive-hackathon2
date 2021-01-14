@@ -1,15 +1,24 @@
 import React, { useContext, useEffect } from 'react';
 import '../Styles/Navbar.css';
 import { GeneralContext } from '../Contexts/GeneralContext';
+import { useToasts } from 'react-toast-notifications';
+
 
 export default function Navbar() {
   const { scorePlayer } = useContext(GeneralContext);
+  const { addToast } = useToasts();
 
   function goodPlayer() {
-    if (scorePlayer === 10) {
-      window.alert('Vous etes déchainé');
-    } else if (scorePlayer === -10) {
-      window.alert('Vous jouez avec vos coudes ?');
+    if (scorePlayer === 10 || scorePlayer === 15 || scorePlayer === 20 ) {
+      addToast('Vous êtes déchainé !', {
+        appearance: 'success',
+        autoDismiss: true,
+      });
+    } else if (scorePlayer < 0) {
+      addToast("Vous dormez ??? Debout la dedans !!!", {
+        appearance: 'error',
+        autoDismiss: true,
+      });
     }
   }
   useEffect(() => {

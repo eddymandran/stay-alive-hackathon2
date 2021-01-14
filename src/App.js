@@ -4,10 +4,12 @@ import Home from './Components/Home';
 import ChooseMap from './Components/ChooseMap';
 import Game from './Components/Game';
 import GeneralContextProvider from './Contexts/GeneralContext';
+import { ToastProvider } from 'react-toast-notifications';
 
 function App() {
   return (
     <div className='App'>
+      <ToastProvider placement="top-right">
       <GeneralContextProvider>
         <Router>
           <main>
@@ -19,6 +21,7 @@ function App() {
           </main>
         </Router>
       </GeneralContextProvider>
+      </ToastProvider>
     </div>
   );
 }

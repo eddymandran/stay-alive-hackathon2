@@ -2,23 +2,25 @@ import React, { useState } from "react";
 import "./App.css";
 import { firebase, messaging } from "./services/firebase";
 import { useEffect } from "react";
+import upload from './uploadFiles/uploadFiles';
 import "./App.css";
 const fb = firebase;
 
 function App() {
   const [users, setUsers] = useState([]);
   const [pseudo, setPseudo] = useState("");
-  const [picturePath, setPicturePath] = useState("");
+  const [picture, setPicture] = useState(null);
 
   // Add a new document in collection "cities"
   const createUser = (event) => {
     event.preventDefault();
+    //upload(picture);
     fb.firestore()
       .collection("Users")
-      .doc("LA")
+      .doc("1oZUtkBNEGob0MnumsgU")
       .set({
         name: pseudo,
-        picturePath: picturePath,
+        picturePath: picture.name,
       })
       .then(function () {
         console.log("Document successfully written!");
@@ -29,7 +31,7 @@ function App() {
   };
 
   useEffect(() => {
-    const modifyUser = fb
+    const getUsers = fb
       .firestore()
       .collection("Users")
       .orderBy("name", "asc")
@@ -41,7 +43,7 @@ function App() {
         );
       });
 
-    return () => modifyUser();
+    return () => getUsers();
   }, []);
 
   return (
@@ -63,6 +65,7 @@ function App() {
           value={pseudo}
           onChange={(e) => setPseudo(e.target.value)}
         ></input>
+        <input type='file' placeholder='Importer votre avatar' onChange={(e) => setPicture(e.target.files[0])}/>
         <input type="submit" value="Rejoindre la partie" />
       </form>
     </div>

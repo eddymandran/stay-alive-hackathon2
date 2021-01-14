@@ -2,14 +2,18 @@
 import React, { useContext } from 'react';
 import '../Styles/Board.css';
 import { GeneralContext } from '../Contexts/GeneralContext';
-import nerf from '../images/nerf.png'
+import nerf from '../images/nerf.png';
+import schwarzy from "../images/schwarzy.png";
+import { firebase } from "../services/firebase";
+const fb = firebase;
 
-export default function Board() {
+export default function Board(props) {
   const { scorePlayer, setScorePlayer } = useContext(GeneralContext);
   document.body.onmousemove = function () {
     document.getElementById('scope').style.marginLeft = event.x - 32 + 'px';
     document.getElementById('scope').style.marginTop = event.y - 32 + 'px';
   };
+  const user = props;
 
   const speed = 22;
   let leftSpace = 0;
@@ -57,9 +61,37 @@ export default function Board() {
       setScorePlayer(newScore);
     }
   }
+  const setCoordonates = (e) => {
+    fb.firestore()
+      .collection("Users")
+      .doc(user.props.id)
+      .update({
+        x: e.clientX,
+        y: e.clientY,
+      })
+      .then((res) => {
+        console.log("Coordonates updated");
+      })
+      .catch((err) => {
+        console.error("Error writing coordonates", err);
+      });
+    /*     setUser({x: e.clientX, y: e.clientY});
+    console.log(user); */
+  };
 
   return (
-    <div id='container'>
+    <div id='container' onClick={(e) => setCoordonates(e)}>
+      
+      <img
+          src={schwarzy}
+          alt={`avatar${user.props.picture}`}
+          style={{
+            position: "absolute",
+            top: `${user.props.y}px`,
+            left: `${user.props.x}px`,
+            zIndex: 3
+          }}
+        />
       <img
         src={nerf}
         id='scope'

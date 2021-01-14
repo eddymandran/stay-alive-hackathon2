@@ -2,6 +2,7 @@ import React from "react";
 import "../Styles/Home.css";
 import { firebase } from "../services/firebase";
 import { useState } from "react";
+import {Redirect} from 'react-router-dom';
 
 const fb = firebase;
 
@@ -12,12 +13,16 @@ export default function Home() {
     event.preventDefault();
     fb.firestore()
       .collection("Users")
-      .doc("1oZUtkBNEGob0MnumsgU")
+      .doc(pseudo)
       .set({
         name: pseudo,
+        picture: "logo_flstudio.jpeg",
+        x: 0,
+        y: 0
       })
       .then(function () {
         console.log("Document successfully written!");
+        
       })
       .catch(function (error) {
         console.error("Error writing document: ", error);

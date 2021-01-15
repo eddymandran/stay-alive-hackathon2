@@ -19,7 +19,8 @@ export default function Board(props) {
   const history = useHistory();
 
   const [users, setUsers] = useState([]);
-  const [player, setPlayer] = useState(props);
+  // const [player, setPlayer] = useState(props);
+  const player = props;
   console.log(player);
 
   document.body.onmousemove = function () {
@@ -117,7 +118,7 @@ export default function Board(props) {
       console.log("je quitte");
       history.push("/");
     }
-    setPlayer({x: topSpace, y: leftSpace});
+    //setPlayer({x: topSpace, y: leftSpace});
   };
 
   function shoot() {

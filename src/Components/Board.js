@@ -82,11 +82,18 @@ export default function Board(props) {
 
   function shoot() {
     let bulletPosX = event.x - 32;
+    console.log("bulletPosX "+bulletPosX)
     let bulletPosY = event.y - 32;
+    console.log("bulletPosY "+bulletPosY)
     let targetPosX = document.getElementById('target').x;
+    console.log("targetPosX "+targetPosX)
     let targetPosXEdge = targetPosX + 100;
+    console.log("targetPosXEdge "+targetPosXEdge)
     let targetPosY = document.getElementById('target').y;
+    console.log("targetPosY "+targetPosY)
     let targetPosYEdge = targetPosY + 100;
+    console.log("targetPosYEdge "+targetPosYEdge)
+
     let newScore = scorePlayer;
 
     if (

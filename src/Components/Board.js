@@ -60,7 +60,7 @@ export default function Board(props) {
 
   //const [player, setPlayer] = useState([props]);
   const player = props;
-  console.log(player);
+  //console.log(player);
 
   const speed = 22;
   let leftSpace = player.props.x;
@@ -91,7 +91,7 @@ export default function Board(props) {
         y: posY,
       })
       .then((res) => {
-        console.log("Coordonates updated");
+        //console.log("Coordonates updated");
       })
       .catch((err) => {
         console.error("Error writing coordonates", err);
@@ -118,7 +118,6 @@ export default function Board(props) {
       target.style.marginTop = topSpace + "px";
     }
     if (myKey === 81) {
-      console.log("je quitte");
       history.push("/");
     }
     // console.log(target.offsetTop);

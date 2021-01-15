@@ -133,16 +133,10 @@ export default function Home() {
       </form>
         ) : (
           <div className='formLogin'>
-            {/* <Link to={`ChooseMap/${idUser}`}>
-              <input type="button" value="Create" className="buttonHome" onClick={createGame} />
-            </Link> */}
-            <input type="button" value="Create" className="buttonHome" onClick={createGame} />
-            <span>{idGame !== "" ? idGame : ""}</span>
           <br/>
             <Link to={`game/${idUser}`} >
-              <input type="button" value="Join : " className="buttonHome" />
+              <input type="button" value="Join" className="buttonHome" />
             </Link>
-            <input type="text" className="gameInput" placeholder="Token Game" onChange={(e) => setIdGame(e.target.value)} />
          </div>
         )}
     </div>

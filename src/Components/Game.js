@@ -1,11 +1,12 @@
-
-import '../Styles/Board.css';
-import Board from './Board';
+import "../Styles/Board.css";
+import Board from "./Board";
 import React, { useEffect } from "react";
 import Navbar from "./Navbar";
 import "../Styles/Game.css";
 import { useState } from "react";
 import { firebase } from "../services/firebase";
+import "../Styles/Board.css";
+
 const fb = firebase;
 
 // const useMove = () => {
@@ -40,11 +41,10 @@ export default function Game(props) {
     return () => getUser();
   }, []);
 
-  
   return (
-    <div className='gameBody'>
-      <Navbar props={(users, setUsers, user)}/>
-      <Board props={user}/>
+    <div className="gameBody">
+      <Navbar props={(users, setUsers, user)} />
+      <Board props={user} />
     </div>
   );
 }

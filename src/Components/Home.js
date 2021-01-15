@@ -1,8 +1,8 @@
-import React from "react";
-import "../Styles/Home.css";
-import { firebase } from "../services/firebase";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import '../Styles/Home.css';
+import { firebase } from '../services/firebase';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const fb = firebase;
 

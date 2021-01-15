@@ -24,7 +24,7 @@ export default function Board(props) {
     document.getElementById("scope").style.marginLeft = event.x - 32 + "px";
     document.getElementById("scope").style.marginTop = event.y - 32 + "px";
   };
-  const user = props;
+  const player = props;
   const onChangePicture = (picture) => {
     switch (picture){
       case 'schwarzy':
@@ -46,7 +46,6 @@ export default function Board(props) {
     const getUsers = fb
       .firestore()
       .collection("Users")
-      /* .where("doc.id", "!=", idUser) */
       .orderBy("name", "asc")
       .onSnapshot((u) => {
         setUsers(
@@ -82,7 +81,7 @@ export default function Board(props) {
   const setCoordonates = (e) => {
     fb.firestore()
       .collection("Users")
-      .doc(user.props.id)
+      .doc(player.props.id)
       .update({
         x: e.clientX,
         y: e.clientY,
@@ -100,7 +99,7 @@ export default function Board(props) {
   document.body.onkeydown = function () {
     const myKey = event.keyCode;
 
-    const target = document.getElementById("target");
+    const target = document.getElementById(`target${player.props.id}`);
     if (myKey === 37) {
       leftSpace -= speed;
       target.style.marginLeft = leftSpace + "px";
@@ -125,11 +124,11 @@ export default function Board(props) {
     console.log("bulletPosX " + bulletPosX);
     let bulletPosY = event.y - 32;
     console.log("bulletPosY " + bulletPosY);
-    let targetPosX = document.getElementById("target").x;
+    let targetPosX = document.getElementById(`target${player.props.id}`).x;
     console.log("targetPosX " + targetPosX);
     let targetPosXEdge = targetPosX + 100;
     console.log("targetPosXEdge " + targetPosXEdge);
-    let targetPosY = document.getElementById("target").y;
+    let targetPosY = document.getElementById(`target${player.props.id}`).y;
     console.log("targetPosY " + targetPosY);
     let targetPosYEdge = targetPosY + 100;
     console.log("targetPosYEdge " + targetPosYEdge);
@@ -148,7 +147,7 @@ export default function Board(props) {
       newScore--;
       setScorePlayer(newScore);
     }
-    handleScorePlayer(newScore, user.props.id);
+    handleScorePlayer(newScore, player.props.id);
   }
 
   console.log(users);
@@ -166,7 +165,7 @@ export default function Board(props) {
               zIndex: -1,
             }}
           >
-            <img id="target" alt="target" src={schwarzy} />
+            <img id={`target${user.id}`} alt="target" src={user.picture} />
             <h2>{user.name}</h2>
           </div>
         );

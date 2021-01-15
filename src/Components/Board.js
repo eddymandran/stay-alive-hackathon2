@@ -19,12 +19,13 @@ export default function Board(props) {
   const history = useHistory();
 
   const [users, setUsers] = useState([]);
+  const [player, setPlayer] = useState(props);
+  console.log(player);
 
   document.body.onmousemove = function () {
     document.getElementById("scope").style.marginLeft = event.x - 32 + "px";
     document.getElementById("scope").style.marginTop = event.y - 32 + "px";
   };
-  const player = props;
   const onChangePicture = (picture) => {
     switch (picture){
       case 'schwarzy':
@@ -71,20 +72,20 @@ export default function Board(props) {
         score: scorePlayer,
       })
       .then((res) => {
-        console.log(res.data);
+        //console.log(res.data);
       })
       .catch((err) => {
         console.error("Error writing coordonates", err);
       });
   };
 
-  const setCoordonates = (e) => {
-    fb.firestore()
+  const setCoordonates = async (posX, posY) => {
+    await fb.firestore()
       .collection("Users")
       .doc(player.props.id)
       .update({
-        x: e.clientX,
-        y: e.clientY,
+        x: posX,
+        y: posY,
       })
       .then((res) => {
         console.log("Coordonates updated");
@@ -92,8 +93,7 @@ export default function Board(props) {
       .catch((err) => {
         console.error("Error writing coordonates", err);
       });
-    /*     setUser({x: e.clientX, y: e.clientY});
-    console.log(user); */
+    
   };
 
   document.body.onkeydown = function () {
@@ -117,6 +117,7 @@ export default function Board(props) {
       console.log("je quitte");
       history.push("/");
     }
+    setPlayer({x: topSpace, y: leftSpace});
   };
 
   function shoot() {
@@ -150,8 +151,6 @@ export default function Board(props) {
     handleScorePlayer(newScore, player.props.id);
   }
 
-  console.log(users);
-
   return (
     <div id="container">
       {users.map((user) => {
@@ -165,7 +164,7 @@ export default function Board(props) {
               zIndex: -1,
             }}
           >
-            <img id={`target${user.id}`} alt="target" src={user.picture} />
+            <img id={`target${user.id}`} alt="target" src={onChangePicture(user.picture)} />
             <h2>{user.name}</h2>
           </div>
         );

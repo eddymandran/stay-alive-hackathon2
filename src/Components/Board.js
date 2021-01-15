@@ -142,10 +142,10 @@ export default function Board(props) {
       bulletPosY > targetPosY &&
       bulletPosY < targetPosYEdge
     ) {
-      newScore++;
+      newScore--;
       setScorePlayer(newScore);
     } else {
-      newScore--;
+      newScore++;
       setScorePlayer(newScore);
     }
     handleScorePlayer(newScore, player.props.id);
@@ -180,7 +180,6 @@ export default function Board(props) {
         }}
       />
 
-      <h1>STAY ALIVE !!</h1>
     </div>
   );
 }

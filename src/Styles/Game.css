@@ -1,8 +1,16 @@
-.gameBody {  
-  width: 80%;
-  height: 100vh;
+.gameBody {
+  width: 100%;
+  height: 100%;
+  z-index: -100;
+  position: fixed;
+  background: url("../images/Jardin.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  overflow: hidden;
 }
-.mouseArea{
+.mouseArea {
   width: 100%;
   height: 100%;
   position: relative;

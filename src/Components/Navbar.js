@@ -8,7 +8,11 @@ import { useToasts } from 'react-toast-notifications';
 import { firebase } from '../services/firebase';
 import { useState } from 'react';
 import gun from '../images/gun.png';
-import schwarzy from '../images/schwarzy.png';
+import schwarzy from "../images/schwarzy.png";
+import obama from "../images/obama.png";
+import madonna from "../images/madonna.png";
+import einstein from "../images/einstein.png";
+import lee from "../images/lee.png";
 
 const fb = firebase;
 
@@ -40,6 +44,24 @@ export default function Navbar(props) {
   }
 
   const [users, setUsers] = useState([]);
+  const player = props;
+
+  const onChangePicture = (picture) => {
+    switch (picture){
+      case 'schwarzy':
+        return schwarzy;
+      case 'obama':
+        return obama;
+      case 'einstein':
+        return einstein;
+      case 'madonna':
+        return madonna;
+      case 'lee':
+        return lee;
+      default:
+        return schwarzy;
+    }
+  }
 
   useEffect(() => {
     const getUsers = fb
@@ -66,7 +88,7 @@ export default function Navbar(props) {
       <div className='zoneAvatar'>
         <button className='buttonBack'>Home</button>
         <img
-          src={schwarzy}
+          src={onChangePicture(player.props.picture)}
           className='avatarImage'
           alt='personnage choisi'
         ></img>

@@ -75,7 +75,7 @@ export default function Board(props) {
   document.body.onkeydown = function () {
     const myKey = event.keyCode;
 
-    const target = document.getElementById('target');
+    const target = document.getElementById('containerTarget');
     if (myKey === 37) {
       leftSpace -= speed;
       target.style.marginLeft = leftSpace + 'px';
@@ -95,9 +95,9 @@ export default function Board(props) {
   function shoot() {
     let bulletPosX = event.x - 32;
     let bulletPosY = event.y - 32;
-    let targetPosX = document.getElementById('target').x;
+    let targetPosX = document.getElementById('containerTarget').x;
     let targetPosXEdge = targetPosX + 100;
-    let targetPosY = document.getElementById('target').y;
+    let targetPosY = document.getElementById('containerTarget').y;
     let targetPosYEdge = targetPosY + 100;
     let newScore = scorePlayer;
     

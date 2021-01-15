@@ -11,14 +11,12 @@ import "firebase/messaging";
 // const app_id = `${process.env.FIREBASE_APPID}`;
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBP5P7XpfVdmbn7lGVagGbbFzNC5C13i-k",
-  authDomain: "stayalive-58f5e.firebaseapp.com",
-  databaseURL:
-    "https://stayalive-58f5e-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "stayalive-58f5e",
-  storageBucket: "stayalive-58f5e.appspot.com",
-  messagingSenderId: "594990641454",
-  appId: "1:594990641454:web:667bf9241834e8564f0abf",
+  apiKey: "AIzaSyAUktM68L1HtOX4ai-BfqevBg3bXOjHEww",
+  authDomain: "stayaliveshoot.firebaseapp.com",
+  projectId: "stayaliveshoot",
+  storageBucket: "stayaliveshoot.appspot.com",
+  messagingSenderId: "160680141890",
+  appId: "1:160680141890:web:911745986a3605d564f9db"
 };
 
 firebase.initializeApp(firebaseConfig);
@@ -26,7 +24,7 @@ firebase.initializeApp(firebaseConfig);
 const messaging = firebase.messaging();
 messaging.usePublicVapidKey(
   // Project Settings => Cloud Messaging => Web Push certificates
-  "BOityaS8GQid8Ey4X0HS5IUm_TbVGTpquC8q_2OnGAKXob6fJxMOVIXdaHPfkt6IHKgD300sA5wPMObc4RLUxRo"
+  "BMlyBf8pSUnwjo9-Ov8vDxb10SMFeYn8ETJ6i8JPIinabAH5LljK928KmzXzQBk9x_p1ehf0_a_Jyczub4uD3kc"
 );
 
 export { firebase, messaging };

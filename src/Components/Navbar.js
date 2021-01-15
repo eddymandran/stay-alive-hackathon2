@@ -58,7 +58,7 @@ export default function Navbar(props) {
         autoDismiss: true,
       });
     } else if (scorePlayer === -1 || scorePlayer === -10) {
-      audioClips.play();
+      audioClips1.play();
       addToast("Vous dormez ??? Debout la dedans !!!", {
         appearance: "error",
         autoDismiss: true,

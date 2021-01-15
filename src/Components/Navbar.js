@@ -1,14 +1,14 @@
-import React, { useContext, useEffect } from 'react';
-import '../Styles/Navbar.css';
+import React, { useContext, useEffect,useState } from 'react';
 import { Howl } from 'howler';
-import gagne from '../audio/gagne.mp3';
-import pump from '../audio/pump.mp3';
 import { GeneralContext } from '../Contexts/GeneralContext';
 import { useToasts } from 'react-toast-notifications';
 import { firebase } from '../services/firebase';
-import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import '../Styles/Navbar.css';
 import gun from '../images/gun.png';
 import schwarzy from '../images/schwarzy.png';
+import gagne from '../audio/gagne.mp3';
+import pump from '../audio/pump.mp3';
 
 const fb = firebase;
 
@@ -22,6 +22,11 @@ const fb = firebase;
 export default function Navbar(props) {
   const { scorePlayer } = useContext(GeneralContext);
   const { addToast } = useToasts();
+  const history = useHistory();
+
+  const handleBackHome = () => {
+    history.push('/');
+  };
 
   function goodPlayer() {
     if (scorePlayer === 10 || scorePlayer === 20) {
@@ -64,7 +69,7 @@ export default function Navbar(props) {
   return (
     <div className='scoreBar'>
       <div className='zoneAvatar'>
-        <button className='buttonBack'>Home</button>
+        <button className='buttonBack' onClick={handleBackHome}>Home</button>
         <img
           src={schwarzy}
           className='avatarImage'

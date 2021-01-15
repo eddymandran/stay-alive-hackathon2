@@ -13,10 +13,17 @@ export default function Board(props) {
   const { scorePlayer, setScorePlayer } = useContext(GeneralContext);
   const history = useHistory();
 
-  document.body.onmousemove = function () {
+/*   document.body.onmousemove = function () {
     document.getElementById('scope').style.marginLeft = event.x - 32 + 'px';
     document.getElementById('scope').style.marginTop = event.y - 32 + 'px';
-  };
+  }; */
+
+  document.body.addEventListener("onmousemove", () => {
+    document.getElementById('scope').style.marginLeft = event.x - 32 + 'px';
+    document.getElementById('scope').style.marginTop = event.y - 32 + 'px';
+  });
+
+
   const user = props;
 
   const speed = 22;

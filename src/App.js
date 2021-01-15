@@ -12,6 +12,10 @@ function App() {
   const [chosenPicturePath, setChosenPicturePath] = useState("schwarzy.png");
   const [pseudo, setPseudo] = useState("");
 
+  
+
+
+  
   return (
     <div className='App'>
       <ToastProvider placement="top-right">

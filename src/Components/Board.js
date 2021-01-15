@@ -5,10 +5,14 @@ import { GeneralContext } from '../Contexts/GeneralContext';
 import nerf from '../images/nerf.png';
 import schwarzy from '../images/schwarzy.png';
 import { firebase } from '../services/firebase';
+import { useHistory } from 'react-router-dom';
+
 const fb = firebase;
 
 export default function Board(props) {
   const { scorePlayer, setScorePlayer } = useContext(GeneralContext);
+  const history = useHistory();
+
   document.body.onmousemove = function () {
     document.getElementById('scope').style.marginLeft = event.x - 32 + 'px';
     document.getElementById('scope').style.marginTop = event.y - 32 + 'px';
@@ -69,6 +73,10 @@ export default function Board(props) {
     } else if (myKey === 40) {
       topSpace += speed;
       target.style.marginTop = topSpace + 'px';
+    }
+    if (myKey === 81) {
+      console.log('je quitte');
+      history.push('/');
     }
   };
 

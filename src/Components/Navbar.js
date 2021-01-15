@@ -28,7 +28,7 @@ export default function Navbar(props) {
   const { addToast } = useToasts();
 
   function goodPlayer() {
-    if (scorePlayer === 10 || scorePlayer === 20) {
+    if (scorePlayer === 5 || scorePlayer === 10) {
       audioClips.play();
       addToast('Vous êtes déchainé !', {
         appearance: 'success',

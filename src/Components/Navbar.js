@@ -129,7 +129,7 @@ export default function Navbar(props) {
       <div className="zoneCharacters">
         <h5 className="title5">Fugitive(s)</h5>
         <ul className="charactersList">
-          {users.map((u) => {
+          {users.filter((u) => u.name !== "test").map((u) => {
             return (
               <li key={u.id}>
                 {u.name} : {u.score} pts

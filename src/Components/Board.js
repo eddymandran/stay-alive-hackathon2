@@ -152,7 +152,7 @@ export default function Board(props) {
 
   return (
     <div id="container">
-      {users.map((user) => {
+      {users.filter((u) => u.name !== "test").map((user) => {
         return (
           <div
             key={user.id}

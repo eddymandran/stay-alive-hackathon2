@@ -92,7 +92,7 @@ export default function Navbar(props) {
           className='avatarImage'
           alt='personnage choisi'
         ></img>
-        <h5 className='title5'>NickName :</h5>
+        <h5 className='title5'>NickName : {player.props.name}</h5>
       </div>
       <hr />
       <div className='zoneScore'>

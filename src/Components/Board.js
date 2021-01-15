@@ -19,9 +19,7 @@ export default function Board(props) {
   const history = useHistory();
 
   const [users, setUsers] = useState([]);
-  // const [player, setPlayer] = useState(props);
-  const player = props;
-  console.log(player);
+  
 
   document.body.onmousemove = function () {
     document.getElementById("scope").style.marginLeft = event.x - 32 + "px";
@@ -60,9 +58,13 @@ export default function Board(props) {
     return () => getUsers();
   }, []);
 
+  //const [player, setPlayer] = useState([props]);
+  const player = props;
+  console.log(player);
+
   const speed = 22;
-  let leftSpace = 0;
-  let topSpace = 0;
+  let leftSpace = player.props.x;
+  let topSpace = player.props.y;
 
   const handleScorePlayer = async (scorePlayer, iduser) => {
     await fb
@@ -80,10 +82,10 @@ export default function Board(props) {
       });
   };
 
-  const setCoordonates = async (posX, posY) => {
+  const setCoordonates = async (posX, posY, iduser) => {
     await fb.firestore()
       .collection("Users")
-      .doc(player.props.id)
+      .doc(iduser)
       .update({
         x: posX,
         y: posY,
@@ -97,8 +99,9 @@ export default function Board(props) {
     
   };
 
-  document.body.onkeydown = function () {
+  document.body.onkeydown = function (event) {
     const myKey = event.keyCode;
+    
 
     const target = document.getElementById(`target${player.props.id}`);
     if (myKey === 37) {
@@ -118,22 +121,18 @@ export default function Board(props) {
       console.log("je quitte");
       history.push("/");
     }
-    //setPlayer({x: topSpace, y: leftSpace});
+    // console.log(target.offsetTop);
+    // console.log(target.offsetLeft);
+    setCoordonates(target.offsetLeft, target.offsetTop, player.props.id);
   };
 
   function shoot() {
     let bulletPosX = event.x - 32;
-    console.log("bulletPosX " + bulletPosX);
     let bulletPosY = event.y - 32;
-    console.log("bulletPosY " + bulletPosY);
     let targetPosX = document.getElementById(`target${player.props.id}`).x;
-    console.log("targetPosX " + targetPosX);
     let targetPosXEdge = targetPosX + 100;
-    console.log("targetPosXEdge " + targetPosXEdge);
     let targetPosY = document.getElementById(`target${player.props.id}`).y;
-    console.log("targetPosY " + targetPosY);
     let targetPosYEdge = targetPosY + 100;
-    console.log("targetPosYEdge " + targetPosYEdge);
 
     let newScore = scorePlayer;
 
